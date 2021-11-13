@@ -1,0 +1,152 @@
+---
+title: "Project Two"
+output: html_document
+---
+## Due Nov. 12 at Midnight.
+## Complete this activity in your R_package_lastname project.
+
+Please have a look at [this](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2656.12373) paper. It explains the relationship between air temperature, butterfly emergence, and plant flowering.
+
+
+##  Phenology 
+
+Phenology is the study of when events happen in organisms' life cycles. For example, the first flowering of a plant for the year, or the emergence of forager bees. Typically, organisms take cues from their environment. Commonly, these are changes such as photoperiod (how much light there is per day) or temperature. 
+
+When organisms that rely on one another fall out of sync, it can be a problem. For example, if a plant starts to flower when the soil is warm enough, this will often occur after a period of warmer air temperatures because soil has a higher heat capacity than air. What happens to the bees when they emerge and don't find any food? This is called *ecological mismatch*. Originally described in 2004 by Winder and Schindler, ecological mismatch can mean that one or both species don't have their needs met by the environment. 
+
+What we're going to do today is look at some historical and present-day ecological data. What were the temperatures historically? And when did butterflies erupt from their cocoons? Butterflies need to be warm to incubate, exit the cocoon and go into flight. 
+
+Before trying the test, make sure you've read the Kharouba and Vellend paper and understand the hypotheses they were testing.
+
+# Project Two
+
+## Part One. 55 points.
+
+```{r}
+download.file(url = "https://raw.githubusercontent.com/Paleantology/GBIO153H/master/data/Butterfly_data.csv", destfile = "data/Butterfly_data.csv")
+download.file(url = "https://raw.githubusercontent.com/Paleantology/GBIO153H/master/data/Phenology_data.csv", destfile = "data/Phenology_data.csv")
+```
+
+## Next, let's read in both the butterfly and phenology datasets. 5 pts.
+
+```{r}
+butterfly <- read_csv("/cloud/project/data/Butterfly_data.csv")
+annual_temp <- read_csv("/cloud/project/data/Phenology_data.csv")
+```
+
+
+1) How many unique species of butterfly are in the dataset? (5pts)
+
+
+```{r, eval=FALSE}
+butterfly %>% 
+  count(ButterflySpecies)
+# 12 unique species of butterflies are in the dataset.
+```
+
+2) Check out the relationship between temperature and time. First, let's plot it. Choose an appropriate plot type, and plot the year vs. temperature. (5 pts)
+```{r, eval = FALSE}
+ggplot(data = annual_temp, mapping = aes(x = Year, y = AnnualTemp)) + geom_point()
+```
+
+
+3. It looks like there might be a relationship between these two things. We'll check this with a *linear regression*. Use `stat_smooth` to add a regression to the plot. (5 pts)
+
+
+```{r, eval = FALSE}
+ggplot(data = annual_temp, mapping = aes(x = Year, y = AnnualTemp)) + geom_point() + stat_smooth()
+```
+
+## Let's take a look at the actual butterflies.
+
+4) If butterflies emerge based on temperature, what would we expect to be the relationship between Spring temperature and day of emergence? Summer temperature and day of emergence? Year and day? Test all three out below. Which predictor (day, spring temp, summer temp) you think is most relevant? (10 points)
+
+```{r, eval=FALSE}
+# An increase in temperature will make the day of emergence sooner. So, a higher Spring temperature value would decrease the emergence day, and a higher Summer temperature value would also decrease the day but at a lesser rate than spring temperatures because butterflies usually emerge in the spring. I would expect the increase in year to also decrease the day because yearly temperatures increase over time (according to the phenology data set), but the increase is not as much as the change in spring and summer temperatures. After plotting each of them, I think the spring temperature is the most relevant on day of emergence because there is a general decrease in emergence day as the spring temperature increases (when comparing it to summer and year).
+
+# day of emergence ~ spring temp
+ggplot(data = butterfly, mapping = aes(x = SpringTemp, y = Day)) + geom_point() + stat_smooth()
+
+# day of emergence ~ summer temp
+ggplot(data = butterfly, mapping = aes(x = SummerTemp, y = Day)) + geom_point() + stat_smooth()
+
+# day of emergence ~ year
+ggplot(data = butterfly, mapping = aes(x = Year, y = Day)) + geom_point() + stat_smooth()
+
+```
+
+
+5) Is there a significant linear relationship between any predictors and the response? (10 pts)
+
+```{r}
+
+model_fit <- lm(Day ~ SpringTemp + SummerTemp + Year, data = butterfly)
+summary(model_fit)
+
+broom::augment(model_fit) -> augmented_fit
+qqnorm(augmented_fit$.resid)
+qqline(augmented_fit$.resid, col = "red")
+
+```
+
+```
+# By looking at the summary of the model fit, the emergence day decreases by 10 for every increase of 1 of the spring temperature, which fits the regression visualized. So, this means that as the temperature increases, the emergence day decreases which does fit the hypothesis of the article. The summary defines this as significant. But, the r-squared value is extremely low, which tells us that 21.3% of the variance in emergence day is explained by an increase in spring temperature, summer temperature, and year. Although not ideal, this still gives us some information; this explains that there are many other variables that impact emergence day, so this is not a linear relationship. The distribution of the residuals is pretty good but frays a good bit in the qqplot; there is some significance in this relationship, but it's not enough to assume it is a linear realtionship.
+```
+
+6) It looks like different animals might have different relationships to the predictor variables. Try plotting them out as a facets (5 pts).
+
+
+```{r, eval=FALSE}
+
+ggplot(data = butterfly, mapping = aes(x = SpringTemp, y = Day)) +
+geom_point() +
+facet_wrap(facets = vars(ButterflySpecies))
+
+ggplot(data = butterfly, mapping = aes(x = SummerTemp, y = Day)) +
+geom_point() +
+facet_wrap(facets = vars(ButterflySpecies))
+
+ggplot(data = butterfly, mapping = aes(x = Year, y = Day)) +
+geom_point() +
+facet_wrap(facets = vars(ButterflySpecies)) 
+
+```
+
+
+7) Join our two datasets together and remake the facet plot above. Does this change your opinion of the relatedness of variables? (5 pts)
+
+
+```{r}
+(joined <- annual_temp %>%  inner_join(butterfly, by = "Year"))
+ggplot(data = joined, mapping = aes(x = SpringTemp, y = Day)) +
+  geom_point() +
+  facet_wrap(facets = vars(ButterflySpecies))
+
+ggplot(data = joined, mapping = aes(x = SummerTemp, y = Day)) +
+geom_point() +
+facet_wrap(facets = vars(ButterflySpecies))
+
+ggplot(data = joined, mapping = aes(x = AnnualTemp, y = Day)) +
+geom_point() +
+facet_wrap(facets = vars(ButterflySpecies))
+
+#This does not change my opinion of the relatedness of variables. Even though the new "AnnualTemp" is added into the dataset, there is still no linear relationship between annual temperature and emergence. This does indicate that the variance depends on species, however. It's not very efficient to group all of the species into one plot because they all behave differently.
+```
+
+8) Wrap up: What is the relationship between temperature (remember that we looked at 3 kinds of temperature) and day of emergence? Is it the same for all species? How does this relate back to Kharouba and Vellend's hypotheses? (10 pts)
+
+
+```{r}
+# The relationship between temperature and day of emergence is not directly linear due to all of the factors that effect butterfly emergence. This relates back to the hypothesis in support of it, because the authors hypothesize that there are many other variables involved in this relationship, which is evident in the nonlinear plots. For some species, there seems to be a decreasing linear relationship between emergence day and temperature, but I think it's mainly because there isn't much data on those species. This is a good example of "correlation does not equal causation". Emergence day does decrease as temperatures increase for some species, which is in support of their hypothesis. But, it's not a direct correlation and there's much more involved, which is similar to what Kharouba and Vellend concluded as well. 
+```
+
+# Part Two. 30 points.
+
+For each of your function files, add to the .R:
+
++ Expected function inputs. For example, if you will be plotting a histogram, do you want a data frame as input? A dataframe and the name of the column you want to plot? 
++ Expected outputs. Will your function return a plot? A single number? A vector of numbers? 
+
+# Part Three. 15 points
+
+Add, commit, and push this file to your R_Package_LastName GitHub repo. Place this file in vignettes. Place the data in data/.
