@@ -1,0 +1,12 @@
+Package: ParrishRPackage
+Title: An R package for removing NA values, making a line plot, and plotting an ANOVA of a dataset.
+Version: 0.0.0.9000
+Authors@R: 
+    person("Katelyn", "Parrish", , "katelyn.parrish@selu.edu", role = c("aut", "cre"))
+Description: This R package allows users to remove NA values from the entire dataset of choice if the dataset 
+              character of choice is not specifically "NA". It also plots two columns from the dataset of choice 
+              into a line plot through ggplot2, and then plotting two variables from the dataset as an ANOVA relationship.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
