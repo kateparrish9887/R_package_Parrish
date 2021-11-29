@@ -23,10 +23,12 @@
 #' 
 #' data(combined)
 #' combined_no_na <- change_na_rm(combined)
+#' combined_no_na
 #' 
 #' 
 #' data(ants)
-#' combined_no_na <- change_na_rm(ants, "None")
+#' ants_no_na <- change_na_rm(ants, "None")
+#' ants_no_na
  
 change_na_rm <- function(data, characterName){
   if (missing(characterName)) {

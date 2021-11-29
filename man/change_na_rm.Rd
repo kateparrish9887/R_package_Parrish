@@ -30,8 +30,10 @@ package, but can also be used in base R for missing values.
 
 data(combined)
 combined_no_na <- change_na_rm(combined)
+combined_no_na
 
 
 data(ants)
-combined_no_na <- change_na_rm(ants, "None")
+ants_no_na <- change_na_rm(ants, "None")
+ants_no_na
 }
