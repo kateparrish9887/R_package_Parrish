@@ -20,14 +20,13 @@
 #' change_na_rm(data, "characterName")
 #' 
 #' @examples
-#' For changing missing values and removing them in base R:
 #' 
-#' combined_no_na <- change_na_rm(combined, " ")
-#' 
-#' 
-#' For removing NA values with the 'tidyverse' package:
-#' 
+#' data(combined)
 #' combined_no_na <- change_na_rm(combined)
+#' 
+#' 
+#' data(ants)
+#' combined_no_na <- change_na_rm(ants, "None")
  
 change_na_rm <- function(data, characterName){
   if (missing(characterName)) {

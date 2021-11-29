@@ -27,12 +27,11 @@ This function is beneficial for data frames being used with the 'tidyverse'
 package, but can also be used in base R for missing values.
 }
 \examples{
-For changing missing values and removing them in base R:
 
-combined_no_na <- change_na_rm(combined, " ")
-
-
-For removing NA values with the 'tidyverse' package:
-
+data(combined)
 combined_no_na <- change_na_rm(combined)
+
+
+data(ants)
+combined_no_na <- change_na_rm(ants, "None")
 }
