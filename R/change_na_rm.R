@@ -5,22 +5,29 @@
 #' frame in one function.
 #' 
 #' This function is beneficial for data frames being used with the 'tidyverse'
-#' package, but can also be used in base R.
+#' package, but can also be used in base R for missing values.
 #' 
-#' @param data a data frame containing missing, non-NA, or NA values
-#' @param characterName the non-NA or missing value to be replaced by NA
-#' if this argument is left blank, the function will only 
-#' remove the NA values that are already present in the data frame
+#' @param data A data frame containing missing, non-NA, or NA values.
+#' @param characterName The non-NA or missing value to be replaced by NA.
+#' if this argument is left blank, the function will only remove the NA values 
+#' that are already present in the data frame.
 #' 
-#' @return data frame The new data frame with missing, non-NA, or NA values replaced (if applicable) and removed.
+#' @return The new data frame with missing, non-NA, or NA values 
+#' replaced (if applicable) and removed.
 #' 
 #' @usage
+#'
+#' change_na_rm(data, "characterName")
 #' 
-#' change_na_rm(ants, "None")
-# function test for both changing NA and removing NA arguments
-
-#' change_na_rm(combined)
-#' for removing NA values only
+#' @examples
+#' For changing missing values and removing them in base R:
+#' 
+#' combined_no_na <- change_na_rm(combined, " ")
+#' 
+#' 
+#' For removing NA values with the 'tidyverse' package:
+#' 
+#' combined_no_na <- change_na_rm(combined)
  
 change_na_rm <- function(data, characterName){
   if (missing(characterName)) {
