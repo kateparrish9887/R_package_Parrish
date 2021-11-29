@@ -1,3 +1,5 @@
+#' Removing and/or changing NA values
+#' 
 #' Function for changing blank or non-NA values in a given data frame into NA 
 #' values if not yet changed to NA, then removing the NA values from the data 
 #' frame in one function.
