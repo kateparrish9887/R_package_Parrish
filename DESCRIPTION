@@ -1,12 +1,12 @@
 Package: ParrishRPackage
-Title: An R package for removing NA values, making a line plot, and plotting an ANOVA of a dataset.
+Title: An R package for changing and removing NA values, making a line range plot, and plotting a linear regression model of a dataset.
 Version: 0.0.0.9000
 Authors@R: 
     person("Katelyn", "Parrish", , "katelyn.parrish@selu.edu", role = c("aut", "cre"))
-Description: This R package allows users to remove NA values from the entire dataset of choice if the dataset 
-              character of choice is not specifically "NA", or if the values are NA. It also plots two columns from the 
-              dataset of choice into a line plot through ggplot2, then plotting both a numerical and a categorical predictor with
-              a response as a linear regression plot.
+Description: This R package allows users to remove NA values from an entire dataset if the dataset contains non-NA values for missing values, 
+              or if the values are NA. This package can also visualize a minimum and maximum value column against a categorical column from a dataset 
+              into a line range plot through ggplot2. Lastly, this package can be used to plot a numerical response and predictor as a linear model, 
+              with an (optional) additional categorical predictor distinguished by color.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
