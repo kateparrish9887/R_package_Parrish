@@ -17,7 +17,7 @@
 #' 
 #' @usage
 #'
-#' change_na_rm(ants, "None")
+#'   change_na_rm(ants, "None")
 #' 
 #' @examples
 #' Only using the remove NA argument:

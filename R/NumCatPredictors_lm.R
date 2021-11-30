@@ -17,7 +17,7 @@
 #' 
 #' @usage 
 #' 
-#' lm_num_cat(ants, min_ma, max_ma, subfamily)
+#'   lm_num_cat(ants, min_ma, max_ma, subfamily)
 #'  
 #' @examples 
 #' No color/categorical predictor argument (using the 'change_na_rm' function 

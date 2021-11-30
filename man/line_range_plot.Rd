@@ -40,9 +40,9 @@ Line range plot using additional axis title labeling, line size and color
 distinction:
 
   butterfly \%>\% 
-  line_range_plot(ButterflySpecies, SpringTemp, SummerTemp) + 
-  geom_linerange(size = 1) +
-  aes(color = Day) +
-  labs(x = "Butterfly Species", 
-       y = "Spring and Summer Temperature Range") 
+   line_range_plot(ButterflySpecies, SpringTemp, SummerTemp) + 
+   geom_linerange(size = 1) +
+   aes(color = Day) +
+   labs(x = "Butterfly Species", 
+        y = "Spring and Summer Temperature Range") 
 }
