@@ -15,7 +15,7 @@
 #' 
 #' @usage
 #' 
-#' line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
+#'   line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
 #'  
 #' @examples
 #' Line range plot (using the 'change_na_rm' function in this package to remove 
