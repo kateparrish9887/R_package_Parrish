@@ -28,7 +28,6 @@
 #' Manipulating and filtering a data frame by removing a non-NA value:
 #' 
 #'   change_na_rm(butterfly, "Plebejus icarioides")
-#' 
  
 change_na_rm <- function(data, characterName){
   if (missing(characterName)) {

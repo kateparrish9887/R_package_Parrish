@@ -35,5 +35,4 @@ Only using the remove NA argument:
 Manipulating and filtering a data frame by removing a non-NA value:
 
   change_na_rm(butterfly, "Plebejus icarioides")
-
 }
