@@ -26,3 +26,14 @@ frame in one function.
 This function is beneficial for data frames being used with the 'tidyverse'
 package, but can also be used in base R for missing values.
 }
+\examples{
+Only using the remove NA argument:
+
+  change_na_rm(combined)
+
+
+Manipulating and filtering a data frame by removing a non-NA value:
+
+  change_na_rm(butterfly, "Plebejus icarioides")
+
+}

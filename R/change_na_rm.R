@@ -19,10 +19,16 @@
 #'
 #' change_na_rm(ants, "None")
 #' 
-#' @example
+#' @examples
+#' Only using the remove NA argument:
 #' 
-#' data(combined)
-#' change_na_rm(combined)
+#'   change_na_rm(combined)
+#' 
+#' 
+#' Manipulating and filtering a data frame by removing a non-NA value:
+#' 
+#'   change_na_rm(butterfly, "Plebejus icarioides")
+#' 
  
 change_na_rm <- function(data, characterName){
   if (missing(characterName)) {

@@ -24,20 +24,20 @@
 #' from this package to remove NA values before plotting the linear 
 #' regression model):
 #' 
-#' ants %>% 
-#'  change_na_rm("None") %>% 
-#'  lm_num_cat(min_ma, max_ma)
+#'   ants %>% 
+#'    change_na_rm("None") %>% 
+#'    lm_num_cat(min_ma, max_ma)
 #'  
 #' 
 #' Color/categorical predictor argument (using the 'change_na_rm' function from 
 #' this package to remove NA values) with additional annotation for plot for 
 #' the linear regression model:
 #' 
-#' ants %>%
-#'  change_na_rm("None") %>%
-#'  lm_num_cat(min_ma, max_ma, Genus) +
-#'  annotate("text", x = 42, y = 27, 
-#'  label = "R^2 == 0.987", parse = TRUE, size = 4)
+#'   ants %>%
+#'    change_na_rm("None") %>%
+#'    lm_num_cat(min_ma, max_ma, Genus) +
+#'    annotate("text", x = 42, y = 27, 
+#'    label = "R^2 == 0.987", parse = TRUE, size = 4)
 
 lm_num_cat <- function(data, response, num_predictor, cat_predictor){
   if (missing(cat_predictor)) {

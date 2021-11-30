@@ -23,26 +23,26 @@ The line range plot of the selected data.
 Function for plotting a line range function using the 'ggplot2' package.
 }
 \details{
-This function includes an x-axis label rotation at -45 degrees for easy axis
-reading.
+This function includes an x-axis label rotation at -45 degrees for easy
+x-axis reading.
 }
 \examples{
 Line range plot (using the 'change_na_rm' function in this package to remove 
 NA values) with additional y-axis title labeling:
 
-ants \%>\% 
- change_na_rm("None") \%>\% 
- line_range_plot(Tribe, min_ma, max_ma) +
- labs(y = "Age (in Ma)")
+  ants \%>\% 
+   change_na_rm("None") \%>\% 
+   line_range_plot(Tribe, min_ma, max_ma) +
+   labs(y = "Age (in Ma)")
 
  
 Line range plot using additional axis title labeling, line size and color 
 distinction:
 
-butterfly \%>\% 
-line_range_plot(ButterflySpecies, SpringTemp, SummerTemp) + 
-geom_linerange(size = 1) +
-aes(color = Day) +
-labs(x = "Butterfly Species", 
-     y = "Spring and Summer Temperature Range") 
+  butterfly \%>\% 
+  line_range_plot(ButterflySpecies, SpringTemp, SummerTemp) + 
+  geom_linerange(size = 1) +
+  aes(color = Day) +
+  labs(x = "Butterfly Species", 
+       y = "Spring and Summer Temperature Range") 
 }
