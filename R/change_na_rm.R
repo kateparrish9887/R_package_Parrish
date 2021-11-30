@@ -17,18 +17,12 @@
 #' 
 #' @usage
 #'
-#' change_na_rm(data, "characterName")
+#' change_na_rm(ants, "None")
 #' 
-#' @examples
+#' @example
 #' 
 #' data(combined)
-#' combined_no_na <- change_na_rm(combined)
-#' combined_no_na
-#' 
-#' 
-#' data(ants)
-#' ants_no_na <- change_na_rm(ants, "None")
-#' ants_no_na
+#' change_na_rm(combined)
  
 change_na_rm <- function(data, characterName){
   if (missing(characterName)) {

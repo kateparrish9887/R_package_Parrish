@@ -4,7 +4,7 @@
 \alias{change_na_rm}
 \title{Removing and/or changing NA values}
 \usage{
-change_na_rm(data, "characterName")
+change_na_rm(ants, "None")
 }
 \arguments{
 \item{data}{A data frame containing missing, non-NA, or NA values.}
@@ -25,15 +25,4 @@ frame in one function.
 \details{
 This function is beneficial for data frames being used with the 'tidyverse'
 package, but can also be used in base R for missing values.
-}
-\examples{
-
-data(combined)
-combined_no_na <- change_na_rm(combined)
-combined_no_na
-
-
-data(ants)
-ants_no_na <- change_na_rm(ants, "None")
-ants_no_na
 }

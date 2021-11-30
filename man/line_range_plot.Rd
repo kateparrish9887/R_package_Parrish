@@ -4,7 +4,7 @@
 \alias{line_range_plot}
 \title{Line range plot function with 'ggplot2'}
 \usage{
-line_range_plot(data, x_axis, y-min, y_max)
+line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
 }
 \arguments{
 \item{data}{A data frame.}
@@ -27,8 +27,8 @@ This function includes an x-axis label rotation at -45 degrees for easy axis
 reading.
 }
 \examples{
-Line range plot using the 'change_na_rm' function to remove NA values with 
-additional y-axis title labeling:
+Line range plot (using the 'change_na_rm' function in this package to remove 
+NA values) with additional y-axis title labeling:
 
 ants \%>\% 
  change_na_rm("None") \%>\% 
@@ -36,10 +36,12 @@ ants \%>\%
  labs(y = "Age (in Ma)")
 
  
-Line range plot using additional axis title labeling and color distinction:
+Line range plot using additional axis title labeling, line size and color 
+distinction:
 
 butterfly \%>\% 
 line_range_plot(ButterflySpecies, SpringTemp, SummerTemp) + 
+geom_linerange(size = 1) +
 aes(color = Day) +
 labs(x = "Butterfly Species", 
      y = "Spring and Summer Temperature Range") 
