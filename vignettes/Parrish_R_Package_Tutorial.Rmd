@@ -1,0 +1,60 @@
+---
+title: "Parrish R Package"
+author: "Katelyn Parrish"
+date: "12/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Installation
+
+Load in the required packages needed for this R package.
+
+```{r, eval=FALSE}
+library(ggplot2)
+library(tidyverse)
+```
+
+Now, install this R package:
+
+```{r, eval=FALSE}
+devtools::install_github("kateparrish9887/R_package_Parrish")
+library(ParrishRPackage)
+```
+
+Let's download some data for our package:
+
+```{r, eval=FALSE}
+download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/Butterfly_data.csv", "/cloud/project/data/Butterfly_data.csv")
+download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/FossilAnts.csv", "/cloud/project/data/FossilAnts.csv")
+download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/combined.csv", "/cloud/project/data/combined.csv")
+```
+
+
+## Working Example
+
++ An example of each function and how it works
++ Say something about why this is a good thing to do
++ Say something about expected output
+
+```{r}
+library(ParrishRPackage)
+no_na_ants <- change_na_rm(ants, "None")
+no_na_ants
+```
+
+```{r}
+library(ParrishRPackage)
+butterfly_plot <- line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
+butterfly_plot
+```
+
+```{r}
+library(ParrishRPackage)
+ants_lm <- lm_num_cat(ants, min_ma, max_ma, subfamily)
+ants_lm
+```
+
