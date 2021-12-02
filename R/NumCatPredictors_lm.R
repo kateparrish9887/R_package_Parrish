@@ -20,18 +20,11 @@
 #'   lm_num_cat(ants, min_ma, max_ma, subfamily)
 #'  
 #' @examples 
-#' No color/categorical predictor argument (using the 'change_na_rm' function 
-#' from this package to remove NA values before plotting the linear 
-#' regression model):
 #' 
 #'   ants %>% 
 #'    change_na_rm("None") %>% 
 #'    lm_num_cat(min_ma, max_ma)
 #'  
-#' 
-#' Color/categorical predictor argument (using the 'change_na_rm' function from 
-#' this package to remove NA values) with additional annotation for plot for 
-#' the linear regression model:
 #' 
 #'   ants %>%
 #'    change_na_rm("None") %>%

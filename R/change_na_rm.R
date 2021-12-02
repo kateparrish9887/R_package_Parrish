@@ -20,12 +20,9 @@
 #'   change_na_rm(ants, "None")
 #' 
 #' @examples
-#' Only using the remove NA argument:
 #' 
 #'   change_na_rm(combined)
 #' 
-#' 
-#' Manipulating and filtering a data frame by removing a non-NA value:
 #' 
 #'   change_na_rm(butterfly, "Plebejus icarioides")
  
