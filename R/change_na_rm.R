@@ -16,8 +16,6 @@
 #'  change_na_rm(combined)
 #'  change_na_rm(butterfly, "Plebejus icarioides")
 #'@export
-
-
 change_na_rm <- function(data, characterName){
   if (missing(characterName)) {
     output_data <- data %>% 

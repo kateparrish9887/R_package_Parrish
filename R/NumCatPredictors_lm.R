@@ -22,7 +22,6 @@
 #'    annotate("text", x = 42, y = 27, 
 #'    label = "R^2 == 0.987", parse = TRUE, size = 4)
 #'@export
-
 lm_num_cat <- function(data, response, num_predictor, cat_predictor){
   if (missing(cat_predictor)) {
     output_lm_plot <- ggplot(data, aes(x = {{num_predictor}}, y = {{response}})) + 

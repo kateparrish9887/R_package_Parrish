@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Load in the required packages needed for this R package.
 
-```{r, eval=FALSE}
+```{r}
 library(ggplot2)
 library(tidyverse)
 ```
@@ -25,14 +25,20 @@ devtools::install_github("kateparrish9887/R_package_Parrish")
 library(ParrishRPackage)
 ```
 
-Let's download some data for our package and give each a name:
+Let's download some data for our package:
 
 ```{r, eval=FALSE}
-butterfly <- download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/Butterfly_data.csv", "/cloud/project/data/Butterfly_data.csv")
-ants <- download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/FossilAnts.csv", "/cloud/project/data/FossilAnts.csv")
-combined <- download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/combined.csv", "/cloud/project/data/combined.csv")
+download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/Butterfly_data.csv", "/cloud/project/data/Butterfly_data.csv")
+download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/FossilAnts.csv", "/cloud/project/data/FossilAnts.csv")
+download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/combined.csv", "/cloud/project/data/combined.csv")
 ```
 
+To make the working examples work smoother, let's load in the data frames and give them each a name:
+```{r}
+butterfly <- read_csv("/cloud/project/data/Butterfly_data.csv")
+ants <- read_csv("/cloud/project/data/FossilAnts.csv")
+combined <- read_csv("/cloud/project/data/combined.csv")
+```
 
 ## Working Examples
 
@@ -64,13 +70,11 @@ This function plots a line range graph by using the 'ggplot2' package.
 This function may be useful for data set visualization for observations that contain a minimum and a maximum range of values, such as minimum and maximum temperature, or minimum and maximum fossil age. Both of these examples are below. This function gives a line range plot, with a minimum and maximum range on the y-axis for each x-axis value.
 
 ```{r}
-butterfly_plot <- line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
-butterfly_plot
+line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
 ```
 
 ```{r}
-ants_lm <- lm_num_cat(ants, min_ma, max_ma, subfamily)
-ants_lm
+lm_num_cat(ants, min_ma, max_ma, subfamily)
 ```
 
 

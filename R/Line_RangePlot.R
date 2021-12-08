@@ -22,8 +22,6 @@
 #'    labs(x = "Butterfly Species", 
 #'         y = "Spring and Summer Temperature Range") 
 #'@export
-
-
 line_range_plot <- function(data, x_axis, y_min, y_max) {
   output_plot <- ggplot(data = data, aes(x = {{x_axis}}, ymin = {{y_min}}, 
     ymax = {{y_max}})) +
