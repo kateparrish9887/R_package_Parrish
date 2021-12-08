@@ -2,7 +2,9 @@
 % Please edit documentation in R/NumCatPredictors_lm.R
 \name{lm_num_cat}
 \alias{lm_num_cat}
-\title{Linear model plot function with 'ggplot2'}
+\title{Linear model plot function with 'ggplot2'
+Function for plotting a linear regression model using the 'ggplot2' package.
+This function includes a colored trend line.}
 \usage{
 lm_num_cat(ants, min_ma, max_ma, subfamily)
 }
@@ -23,18 +25,14 @@ predictor value.}
 A linear regression plot with a colored trend line.
 }
 \description{
+Linear model plot function with 'ggplot2'
 Function for plotting a linear regression model using the 'ggplot2' package.
-}
-\details{
 This function includes a colored trend line.
 }
 \examples{
-
   ants \%>\% 
    change_na_rm("None") \%>\% 
    lm_num_cat(min_ma, max_ma)
- 
-
   ants \%>\%
    change_na_rm("None") \%>\%
    lm_num_cat(min_ma, max_ma, Genus) +

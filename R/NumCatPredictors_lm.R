@@ -1,9 +1,6 @@
 #' Linear model plot function with 'ggplot2'
-#' 
 #' Function for plotting a linear regression model using the 'ggplot2' package.
-#' 
 #' This function includes a colored trend line.
-#' 
 #' @param data A data frame.
 #' @param response A column in the data frame to be used as a response variable.
 #' @param num_predictor A column in the data frame containing numerical values 
@@ -12,25 +9,19 @@
 #' to be used as an additional predictor variable distinguished by color;
 #' If left blank, the linear regression plot will be returned with only one 
 #' predictor value.
-#' 
 #' @return A linear regression plot with a colored trend line.
-#' 
 #' @usage 
-#' 
 #'   lm_num_cat(ants, min_ma, max_ma, subfamily)
-#'  
 #' @examples 
-#' 
 #'   ants %>% 
 #'    change_na_rm("None") %>% 
 #'    lm_num_cat(min_ma, max_ma)
-#'  
-#' 
 #'   ants %>%
 #'    change_na_rm("None") %>%
 #'    lm_num_cat(min_ma, max_ma, Genus) +
 #'    annotate("text", x = 42, y = 27, 
 #'    label = "R^2 == 0.987", parse = TRUE, size = 4)
+#'@export
 
 lm_num_cat <- function(data, response, num_predictor, cat_predictor){
   if (missing(cat_predictor)) {
@@ -47,4 +38,3 @@ lm_num_cat <- function(data, response, num_predictor, cat_predictor){
     print(output_lm_plot)
   }
 }
-

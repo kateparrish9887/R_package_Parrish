@@ -2,7 +2,10 @@
 % Please edit documentation in R/Line_RangePlot.R
 \name{line_range_plot}
 \alias{line_range_plot}
-\title{Line range plot function with 'ggplot2'}
+\title{Line range plot function with 'ggplot2'
+Function for plotting a line range function using the 'ggplot2' package.
+This function includes an x-axis label rotation at -45 degrees for easy
+x-axis reading.}
 \usage{
 line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
 }
@@ -20,20 +23,16 @@ of the graph.}
 The line range plot of the selected data.
 }
 \description{
+Line range plot function with 'ggplot2'
 Function for plotting a line range function using the 'ggplot2' package.
-}
-\details{
 This function includes an x-axis label rotation at -45 degrees for easy
 x-axis reading.
 }
 \examples{
-
   ants \%>\% 
    change_na_rm("None") \%>\% 
    line_range_plot(Tribe, min_ma, max_ma) +
    labs(y = "Age (in Ma)")
-
-
   butterfly \%>\% 
    line_range_plot(ButterflySpecies, SpringTemp, SummerTemp) + 
    geom_linerange(size = 1) +

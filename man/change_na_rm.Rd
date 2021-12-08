@@ -2,7 +2,12 @@
 % Please edit documentation in R/change_na_rm.R
 \name{change_na_rm}
 \alias{change_na_rm}
-\title{Removing and/or changing NA values}
+\title{Removing and/or changing NA values
+Function for changing blank or non-NA values in a given data frame into NA
+values if not yet changed to NA, then removing the NA values from the data
+frame in one function.
+This function is beneficial for data frames being used with the 'tidyverse'
+package, but can also be used in base R for missing values.}
 \usage{
 change_na_rm(ants, "None")
 }
@@ -18,18 +23,14 @@ The new data frame with missing, non-NA, or NA values
 replaced (if applicable) and removed.
 }
 \description{
+Removing and/or changing NA values
 Function for changing blank or non-NA values in a given data frame into NA
 values if not yet changed to NA, then removing the NA values from the data
 frame in one function.
-}
-\details{
 This function is beneficial for data frames being used with the 'tidyverse'
 package, but can also be used in base R for missing values.
 }
 \examples{
-
-  change_na_rm(combined)
-
-
-  change_na_rm(butterfly, "Plebejus icarioides")
+ change_na_rm(combined)
+ change_na_rm(butterfly, "Plebejus icarioides")
 }

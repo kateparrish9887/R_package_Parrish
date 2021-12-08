@@ -25,36 +25,73 @@ devtools::install_github("kateparrish9887/R_package_Parrish")
 library(ParrishRPackage)
 ```
 
-Let's download some data for our package:
+Let's download some data for our package and give each a name:
 
 ```{r, eval=FALSE}
-download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/Butterfly_data.csv", "/cloud/project/data/Butterfly_data.csv")
-download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/FossilAnts.csv", "/cloud/project/data/FossilAnts.csv")
-download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/combined.csv", "/cloud/project/data/combined.csv")
+butterfly <- download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/Butterfly_data.csv", "/cloud/project/data/Butterfly_data.csv")
+ants <- download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/FossilAnts.csv", "/cloud/project/data/FossilAnts.csv")
+combined <- download.file("https://raw.githubusercontent.com/kateparrish9887/R_package_Parrish/master/data/combined.csv", "/cloud/project/data/combined.csv")
 ```
 
 
-## Working Example
+## Working Examples
 
-+ An example of each function and how it works
-+ Say something about why this is a good thing to do
-+ Say something about expected output
+# Function for removing and changing NA values
+
+This function allows you to change non-NA values if applicable, then dropping those NA values from a data set in one function. If your data set already contains NA values, then this function can simply be used to remove those values. 
+
+This is useful for data cleanup, especially if you have plans of plotting the data set. This function gives you a data set with no NA values, and some examples are below.
 
 ```{r}
-library(ParrishRPackage)
-no_na_ants <- change_na_rm(ants, "None")
-no_na_ants
+change_na_rm(ants, "None")
 ```
 
 ```{r}
-library(ParrishRPackage)
+change_na_rm(combined)
+```
+
+This function can also be used to strategically remove a column if needed. This is useful if a column in your data set was not recorded correctly, or if it simply needs to be removed for further data cleanup.
+
+```{r}
+change_na_rm(butterfly, "Plebejus icarioides")
+```
+
+
+# Function for plotting a line range plot
+
+This function plots a line range graph by using the 'ggplot2' package. 
+
+This function may be useful for data set visualization for observations that contain a minimum and a maximum range of values, such as minimum and maximum temperature, or minimum and maximum fossil age. Both of these examples are below. This function gives a line range plot, with a minimum and maximum range on the y-axis for each x-axis value.
+
+```{r}
 butterfly_plot <- line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
 butterfly_plot
 ```
 
 ```{r}
-library(ParrishRPackage)
 ants_lm <- lm_num_cat(ants, min_ma, max_ma, subfamily)
 ants_lm
 ```
 
+
+# Function for plotting a linear regression model
+
+This function is for plotting a linear regression model by using the 'ggplot2' package.
+
+This function can be useful for data sets that are hypothesized to have a linear relationship between a numerical response and a numerical predictor. It can also be used to plot a linear model with an additional categorical predictor with the categorical predictor and the numeric response. This function produces a linear model scatter plot and includes a colored trend line. 
+
+If this function is used for both a numerical and categorical predictor with the numerical response, the categorical predictor will be represented by color on the scatter plot. An example of this is below.
+
+```{r}
+lm_num_cat(ants, min_ma, max_ma, subfamily)
+```
+
+If a categorical predictor is not needed, then only a numerical response and predictor can be put in the arguments of the function. 
+
+The 'change_na_rm' function that is also in this package can be used with this function to both change and remove NA values from the data set, then plot a linear regression plot. 
+
+```{r}
+ants %>% 
+  change_na_rm("None") %>% 
+  lm_num_cat(min_ma, max_ma)
+```
