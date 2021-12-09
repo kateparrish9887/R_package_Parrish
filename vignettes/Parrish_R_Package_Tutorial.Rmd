@@ -49,16 +49,19 @@ This function allows you to change non-NA values if applicable, then dropping th
 This is useful for data cleanup, especially if you have plans of plotting the data set. This function gives you a data set with no NA values, and some examples are below.
 
 ```{r}
+library(ParrishRPackage)
 change_na_rm(ants, "None")
 ```
 
 ```{r}
+library(ParrishRPackage)
 change_na_rm(combined)
 ```
 
 This function can also be used to strategically remove a column if needed. This is useful if a column in your data set was not recorded correctly, or if it simply needs to be removed for further data cleanup.
 
 ```{r}
+library(ParrishRPackage)
 change_na_rm(butterfly, "Plebejus icarioides")
 ```
 
@@ -70,10 +73,12 @@ This function plots a line range graph by using the 'ggplot2' package.
 This function may be useful for data set visualization for observations that contain a minimum and a maximum range of values, such as minimum and maximum temperature, or minimum and maximum fossil age. Both of these examples are below. This function gives a line range plot, with a minimum and maximum range on the y-axis for each x-axis value.
 
 ```{r}
+library(ParrishRPackage)
 line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
 ```
 
 ```{r}
+library(ParrishRPackage)
 lm_num_cat(ants, min_ma, max_ma, subfamily)
 ```
 
@@ -87,6 +92,7 @@ This function can be useful for data sets that are hypothesized to have a linear
 If this function is used for both a numerical and categorical predictor with the numerical response, the categorical predictor will be represented by color on the scatter plot. An example of this is below.
 
 ```{r}
+library(ParrishRPackage)
 lm_num_cat(ants, min_ma, max_ma, subfamily)
 ```
 
@@ -95,6 +101,7 @@ If a categorical predictor is not needed, then only a numerical response and pre
 The 'change_na_rm' function that is also in this package can be used with this function to both change and remove NA values from the data set, then plot a linear regression plot. 
 
 ```{r}
+library(ParrishRPackage)
 ants %>% 
   change_na_rm("None") %>% 
   lm_num_cat(min_ma, max_ma)
