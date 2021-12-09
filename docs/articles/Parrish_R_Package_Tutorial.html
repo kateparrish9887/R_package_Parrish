@@ -208,10 +208,13 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
 <span class="fu"><a href="../reference/line_range_plot.html">line_range_plot</a></span><span class="op">(</span><span class="va">butterfly</span>, <span class="va">ButterflySpecies</span>, <span class="va">SpringTemp</span>, <span class="va">SummerTemp</span><span class="op">)</span></code></pre></div>
 <p><img src="Parrish_R_Package_Tutorial_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<p>Additional functions from this package like ‘change_na_rm’ can be used for data cleanup prior to plotting the line range plot. A y-axis label was added in the example for clarification as well.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
-<span class="fu"><a href="../reference/lm_num_cat.html">lm_num_cat</a></span><span class="op">(</span><span class="va">ants</span>, <span class="va">min_ma</span>, <span class="va">max_ma</span>, <span class="va">subfamily</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## `geom_smooth()` using formula 'y ~ x'</span></code></pre>
+<span class="va">ants</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="st">"None"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/line_range_plot.html">line_range_plot</a></span><span class="op">(</span><span class="va">Tribe</span>, <span class="va">min_ma</span>, <span class="va">max_ma</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Age (in Ma)"</span><span class="op">)</span></code></pre></div>
 <p><img src="Parrish_R_Package_Tutorial_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
 <div class="section level1">
@@ -220,14 +223,14 @@
 <p>This function is for plotting a linear regression model by using the ‘ggplot2’ package.</p>
 <p>This function can be useful for data sets that are hypothesized to have a linear relationship between a numerical response and a numerical predictor. It can also be used to plot a linear model with an additional categorical predictor with the categorical predictor and the numeric response. This function produces a linear model scatter plot and includes a colored trend line.</p>
 <p>If this function is used for both a numerical and categorical predictor with the numerical response, the categorical predictor will be represented by color on the scatter plot. An example of this is below.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
 <span class="fu"><a href="../reference/lm_num_cat.html">lm_num_cat</a></span><span class="op">(</span><span class="va">ants</span>, <span class="va">min_ma</span>, <span class="va">max_ma</span>, <span class="va">subfamily</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## `geom_smooth()` using formula 'y ~ x'</span></code></pre>
 <p><img src="Parrish_R_Package_Tutorial_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 <p>If a categorical predictor is not needed, then only a numerical response and predictor can be put in the arguments of the function.</p>
-<p>The ‘change_na_rm’ function that is also in this package can be used with this function to both change and remove NA values from the data set, then plot a linear regression plot.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<p>The ‘change_na_rm’ function that is also in this package can also be used with this function to both change and remove NA values from the data set, then plot a linear regression plot.</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
 <span class="va">ants</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="st">"None"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 

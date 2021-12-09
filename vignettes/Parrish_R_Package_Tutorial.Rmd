@@ -77,9 +77,14 @@ library(ParrishRPackage)
 line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp)
 ```
 
+Additional functions from this package like 'change_na_rm' can be used for data cleanup prior to plotting the line range plot. A y-axis label was added in the example for clarification as well.
+
 ```{r}
 library(ParrishRPackage)
-lm_num_cat(ants, min_ma, max_ma, subfamily)
+ants %>% 
+  change_na_rm("None") %>% 
+  line_range_plot(Tribe, min_ma, max_ma) +
+  labs(y = "Age (in Ma)")
 ```
 
 
@@ -98,7 +103,7 @@ lm_num_cat(ants, min_ma, max_ma, subfamily)
 
 If a categorical predictor is not needed, then only a numerical response and predictor can be put in the arguments of the function. 
 
-The 'change_na_rm' function that is also in this package can be used with this function to both change and remove NA values from the data set, then plot a linear regression plot. 
+The 'change_na_rm' function that is also in this package can also be used with this function to both change and remove NA values from the data set, then plot a linear regression plot. 
 
 ```{r}
 library(ParrishRPackage)
