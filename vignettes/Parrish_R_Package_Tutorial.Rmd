@@ -44,7 +44,7 @@ combined <- read_csv("/cloud/project/data/combined.csv")
 
 # Function for removing and changing NA values
 
-This function allows you to change non-NA values if applicable, then dropping those NA values from a data set in one function. If your data set already contains NA values, then this function can simply be used to remove those values. 
+This function allows you to change non-NA values if applicable, then it drops those NA values from a data set in one function. If your data set already contains NA values, then this function can simply be used to remove those values. 
 
 This is useful for data cleanup, especially if you have plans of plotting the data set. This function gives you a data set with no NA values, and some examples are below.
 
