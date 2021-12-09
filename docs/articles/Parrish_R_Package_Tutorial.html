@@ -146,15 +146,58 @@
 <p>This function allows you to change non-NA values if applicable, then dropping those NA values from a data set in one function. If your data set already contains NA values, then this function can simply be used to remove those values.</p>
 <p>This is useful for data cleanup, especially if you have plans of plotting the data set. This function gives you a data set with no NA values, and some examples are below.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="va">ants</span>, <span class="st">"None"</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Error in change_na_rm(ants, "None"): could not find function "change_na_rm"</span></code></pre>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
+<span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="va">ants</span>, <span class="st">"None"</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 23 × 9</span></span>
+<span class="co">##    taxon      reference_no subfamily  Tribe   Genus   Fossil min_ma max_ma Notes</span>
+<span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="co">## <span style="color: #BCBCBC;"> 1</span> Amblyopon…        <span style="text-decoration: underline;">53</span>165 Ambylopon… Amblyo… Amblyo… Yes     20.4    23.0 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 2</span> Solenopsi…        <span style="text-decoration: underline;">39</span>931 Myrmicinae Soleno… Soleno… Yes     20.4    23.0 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 3</span> Solenopsis        <span style="text-decoration: underline;">56</span>112 Myrmicinae Soleno… Soleno… Yes      5.33    8.7 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 4</span> Solenopsi…        <span style="text-decoration: underline;">38</span>999 Myrmicinae Soleno… Soleno… Yes     28.4    33.9 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 5</span> Solenopsi…        <span style="text-decoration: underline;">38</span>738 Myrmicinae Soleno… Soleno… Yes     28.4    33.9 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 6</span> Solenopsi…        <span style="text-decoration: underline;">38</span>999 Myrmicinae Soleno… Soleno… Yes     28.4    33.9 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 7</span> Solenopsi…        <span style="text-decoration: underline;">38</span>738 Myrmicinae Soleno… Soleno… Yes     28.4    33.9 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 8</span> Solenopsi…        <span style="text-decoration: underline;">38</span>738 Myrmicinae Soleno… Soleno… Yes     28.4    33.9 Note </span>
+<span class="co">## <span style="color: #BCBCBC;"> 9</span> Solenopsi…        <span style="text-decoration: underline;">38</span>738 Myrmicinae Soleno… Soleno… Yes     28.4    33.9 Note </span>
+<span class="co">## <span style="color: #BCBCBC;">10</span> Solenopsi…        <span style="text-decoration: underline;">38</span>738 Myrmicinae Soleno… Soleno… Yes     28.4    33.9 Note </span>
+<span class="co">## <span style="color: #949494;"># … with 13 more rows</span></span></code></pre>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="va">combined</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Error in change_na_rm(combined): could not find function "change_na_rm"</span></code></pre>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
+<span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="va">combined</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 30,676 × 13</span></span>
+<span class="co">##    record_id month   day  year plot_id species_id sex   hindfoot_length weight</span>
+<span class="co">##        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">## <span style="color: #BCBCBC;"> 1</span>       845     5     6  <span style="text-decoration: underline;">1</span>978       2 NL         M                  32    204</span>
+<span class="co">## <span style="color: #BCBCBC;"> 2</span>      <span style="text-decoration: underline;">1</span>164     8     5  <span style="text-decoration: underline;">1</span>978       2 NL         M                  34    199</span>
+<span class="co">## <span style="color: #BCBCBC;"> 3</span>      <span style="text-decoration: underline;">1</span>261     9     4  <span style="text-decoration: underline;">1</span>978       2 NL         M                  32    197</span>
+<span class="co">## <span style="color: #BCBCBC;"> 4</span>      <span style="text-decoration: underline;">1</span>756     4    29  <span style="text-decoration: underline;">1</span>979       2 NL         M                  33    166</span>
+<span class="co">## <span style="color: #BCBCBC;"> 5</span>      <span style="text-decoration: underline;">1</span>818     5    30  <span style="text-decoration: underline;">1</span>979       2 NL         M                  32    184</span>
+<span class="co">## <span style="color: #BCBCBC;"> 6</span>      <span style="text-decoration: underline;">1</span>882     7     4  <span style="text-decoration: underline;">1</span>979       2 NL         M                  32    206</span>
+<span class="co">## <span style="color: #BCBCBC;"> 7</span>      <span style="text-decoration: underline;">2</span>133    10    25  <span style="text-decoration: underline;">1</span>979       2 NL         F                  33    274</span>
+<span class="co">## <span style="color: #BCBCBC;"> 8</span>      <span style="text-decoration: underline;">2</span>184    11    17  <span style="text-decoration: underline;">1</span>979       2 NL         F                  30    186</span>
+<span class="co">## <span style="color: #BCBCBC;"> 9</span>      <span style="text-decoration: underline;">2</span>406     1    16  <span style="text-decoration: underline;">1</span>980       2 NL         F                  33    184</span>
+<span class="co">## <span style="color: #BCBCBC;">10</span>      <span style="text-decoration: underline;">3</span>000     5    18  <span style="text-decoration: underline;">1</span>980       2 NL         F                  31     87</span>
+<span class="co">## <span style="color: #949494;"># … with 30,666 more rows, and 4 more variables: genus &lt;chr&gt;, species &lt;chr&gt;,</span></span>
+<span class="co">## <span style="color: #949494;">#   taxa &lt;chr&gt;, plot_type &lt;chr&gt;</span></span></code></pre>
 <p>This function can also be used to strategically remove a column if needed. This is useful if a column in your data set was not recorded correctly, or if it simply needs to be removed for further data cleanup.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="va">butterfly</span>, <span class="st">"Plebejus icarioides"</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Error in change_na_rm(butterfly, "Plebejus icarioides"): could not find function "change_na_rm"</span></code></pre>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
+<span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="va">butterfly</span>, <span class="st">"Plebejus icarioides"</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 126 × 5</span></span>
+<span class="co">##    ButterflySpecies       Year   Day SpringTemp SummerTemp</span>
+<span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">## <span style="color: #BCBCBC;"> 1</span> Glaucopsyche lygdamus  <span style="text-decoration: underline;">1</span>931   133       6.85       15.4</span>
+<span class="co">## <span style="color: #BCBCBC;"> 2</span> Cupido amyntula        <span style="text-decoration: underline;">1</span>931   143       6.85       15.4</span>
+<span class="co">## <span style="color: #BCBCBC;"> 3</span> Cupido amyntula        <span style="text-decoration: underline;">1</span>931   158       6.85       15.4</span>
+<span class="co">## <span style="color: #BCBCBC;"> 4</span> Glaucopsyche lygdamus  <span style="text-decoration: underline;">1</span>931   212       6.85       15.4</span>
+<span class="co">## <span style="color: #BCBCBC;"> 5</span> Cupido amyntula        <span style="text-decoration: underline;">1</span>933   142       5.4        14.9</span>
+<span class="co">## <span style="color: #BCBCBC;"> 6</span> Glaucopsyche lygdamus  <span style="text-decoration: underline;">1</span>933   154       5.4        14.9</span>
+<span class="co">## <span style="color: #BCBCBC;"> 7</span> Glaucopsyche lygdamus  <span style="text-decoration: underline;">1</span>933   156       5.4        14.9</span>
+<span class="co">## <span style="color: #BCBCBC;"> 8</span> Coenonympha tullia     <span style="text-decoration: underline;">1</span>933   168       5.4        14.9</span>
+<span class="co">## <span style="color: #BCBCBC;"> 9</span> Coenonympha tullia     <span style="text-decoration: underline;">1</span>937   186       6.4        15.2</span>
+<span class="co">## <span style="color: #BCBCBC;">10</span> Glaucopsyche lygdamus  <span style="text-decoration: underline;">1</span>938   138       6.78       15.8</span>
+<span class="co">## <span style="color: #949494;"># … with 116 more rows</span></span></code></pre>
 </div>
 <div class="section level1">
 <h1 id="function-for-plotting-a-line-range-plot">Function for plotting a line range plot<a class="anchor" aria-label="anchor" href="#function-for-plotting-a-line-range-plot"></a>
@@ -162,11 +205,14 @@
 <p>This function plots a line range graph by using the ‘ggplot2’ package.</p>
 <p>This function may be useful for data set visualization for observations that contain a minimum and a maximum range of values, such as minimum and maximum temperature, or minimum and maximum fossil age. Both of these examples are below. This function gives a line range plot, with a minimum and maximum range on the y-axis for each x-axis value.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/line_range_plot.html">line_range_plot</a></span><span class="op">(</span><span class="va">butterfly</span>, <span class="va">ButterflySpecies</span>, <span class="va">SpringTemp</span>, <span class="va">SummerTemp</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Error in line_range_plot(butterfly, ButterflySpecies, SpringTemp, SummerTemp): could not find function "line_range_plot"</span></code></pre>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/lm_num_cat.html">lm_num_cat</a></span><span class="op">(</span><span class="va">ants</span>, <span class="va">min_ma</span>, <span class="va">max_ma</span>, <span class="va">subfamily</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Error in lm_num_cat(ants, min_ma, max_ma, subfamily): could not find function "lm_num_cat"</span></code></pre>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
+<span class="fu"><a href="../reference/line_range_plot.html">line_range_plot</a></span><span class="op">(</span><span class="va">butterfly</span>, <span class="va">ButterflySpecies</span>, <span class="va">SpringTemp</span>, <span class="va">SummerTemp</span><span class="op">)</span></code></pre></div>
+<p><img src="Parrish_R_Package_Tutorial_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
+<span class="fu"><a href="../reference/lm_num_cat.html">lm_num_cat</a></span><span class="op">(</span><span class="va">ants</span>, <span class="va">min_ma</span>, <span class="va">max_ma</span>, <span class="va">subfamily</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## `geom_smooth()` using formula 'y ~ x'</span></code></pre>
+<p><img src="Parrish_R_Package_Tutorial_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
 <div class="section level1">
 <h1 id="function-for-plotting-a-linear-regression-model">Function for plotting a linear regression model<a class="anchor" aria-label="anchor" href="#function-for-plotting-a-linear-regression-model"></a>
@@ -174,16 +220,20 @@
 <p>This function is for plotting a linear regression model by using the ‘ggplot2’ package.</p>
 <p>This function can be useful for data sets that are hypothesized to have a linear relationship between a numerical response and a numerical predictor. It can also be used to plot a linear model with an additional categorical predictor with the categorical predictor and the numeric response. This function produces a linear model scatter plot and includes a colored trend line.</p>
 <p>If this function is used for both a numerical and categorical predictor with the numerical response, the categorical predictor will be represented by color on the scatter plot. An example of this is below.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/lm_num_cat.html">lm_num_cat</a></span><span class="op">(</span><span class="va">ants</span>, <span class="va">min_ma</span>, <span class="va">max_ma</span>, <span class="va">subfamily</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Error in lm_num_cat(ants, min_ma, max_ma, subfamily): could not find function "lm_num_cat"</span></code></pre>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
+<span class="fu"><a href="../reference/lm_num_cat.html">lm_num_cat</a></span><span class="op">(</span><span class="va">ants</span>, <span class="va">min_ma</span>, <span class="va">max_ma</span>, <span class="va">subfamily</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## `geom_smooth()` using formula 'y ~ x'</span></code></pre>
+<p><img src="Parrish_R_Package_Tutorial_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 <p>If a categorical predictor is not needed, then only a numerical response and predictor can be put in the arguments of the function.</p>
 <p>The ‘change_na_rm’ function that is also in this package can be used with this function to both change and remove NA values from the data set, then plot a linear regression plot.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ants</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ParrishRPackage</span><span class="op">)</span>
+<span class="va">ants</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/change_na_rm.html">change_na_rm</a></span><span class="op">(</span><span class="st">"None"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/lm_num_cat.html">lm_num_cat</a></span><span class="op">(</span><span class="va">min_ma</span>, <span class="va">max_ma</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Error in lm_num_cat(., min_ma, max_ma): could not find function "lm_num_cat"</span></code></pre>
+<pre><code><span class="co">## `geom_smooth()` using formula 'y ~ x'</span></code></pre>
+<p><img src="Parrish_R_Package_Tutorial_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 </div>
   </div>
 
